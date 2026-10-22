@@ -1,12 +1,12 @@
-# 🛡️ The Ultimate VAPT (Vulnerability Assessment & Penetration Testing) & OSINT Master Guide
+# 🛡️ The Ultimate VAPT & OSINT Master Guide
 
-Welcome to the comprehensive guide for mastering VAPT and OSINT. This repository contains everything you need to understand the complete attack lifecycle, the exact tools required (including specialized search engines), a 22-project roadmap to build your portfolio, and the real-world expectations of a security engineer.
+Welcome to the comprehensive guide for mastering VAPT and OSINT. This repository contains everything you need to understand the complete attack lifecycle, the exact 101 tools required (ranked by priority and alphabetized), specialized search engines, a 22-project roadmap, and the real-world expectations of a security engineer.
 
 ---
 
 ## 🩺 The VAPT Lifecycle (The Doctor Analogy)
 
-To understand VAPT, think of a security engineer as a doctor diagnosing a patient. You cannot just start "cutting" (hacking) without a diagnosis. 
+To understand VAPT, think of a security engineer as a doctor diagnosing a patient. You cannot just start "cutting" (hacking) without a diagnosis.
 
 | # | Doctor Analogy | VAPT Phase | What You Actually Do | Tools Used |
 | :--- | :--- | :--- | :--- | :--- |
@@ -29,118 +29,198 @@ To understand VAPT, think of a security engineer as a doctor diagnosing a patien
 
 ---
 
-## 🛠️ The 101-Tool VAPT Arsenal (Categorized by Function)
+## 🛠️ The 101-Tool Arsenal (Alphabetical by Priority)
 
-Here is the massive categorized list of tools you need to master, ranked by priority.
+Here are all 101 tools extracted exactly as categorized by priority, sorted alphabetically for easy reference.
 
-### 🥇 Must Master (Priority: 27 Tools)
+### 🥇 Must Master (27 Tools)
 *These are non-negotiable for any VAPT role.*
-*   **Recon & OSINT:** Nmap, Shodan, WHOIS, Google Dorking
-*   **Vulnerability Scanning:** Nessus, OpenVAS
-*   **Web App Exploitation:** Burp Suite, SQLmap, OWASP ZAP
-*   **Network Exploitation:** Metasploit, Hydra, John the Ripper
-*   **Post-Exploitation:** Mimikatz, BloodHound
-*   **Mobile & Cloud:** Frida, MobSF, Ghidra, AWS CLI, ScoutSuite
-*   **Cracking & Reporting:** Hashcat, Dradis, CVSS Calculator, Microsoft Word
-*   **AI/LLM & Scripting:** Garak, Python, Bash, PowerShell
+*   **AWS CLI** - Command-line tool for managing AWS services. [Link](https://aws.amazon.com/cli/)
+*   **Bash** - Unix shell and command language for scripting automation. [Link](https://www.gnu.org/software/bash/)
+*   **BloodHound** - Uses graph theory to reveal hidden relationships and attack paths in Active Directory. [Link](https://github.com/BloodHoundAD/BloodHound)
+*   **Burp Suite** - Leading web application security testing platform. [Link](https://portswigger.net/burp)
+*   **CVSS Calculator** - Standardized scoring system for vulnerability severity. [Link](https://www.first.org/cvss/calculator/3.1)
+*   **Dradis** - Collaboration and reporting platform for security teams. [Link](https://dradisframework.com/)
+*   **Frida** - Dynamic code instrumentation toolkit for mobile apps. [Link](https://frida.re/)
+*   **Garak** - LLM vulnerability scanner (AI red teaming). [Link](https://github.com/leondz/garak)
+*   **Ghidra** - NSA's software reverse engineering (SRE) suite. [Link](https://ghidra-sre.org/)
+*   **Google Dorking** - Using advanced search operators to find exposed data. [Link](https://www.google.com/)
+*   **Hashcat** - Advanced password recovery and cracking utility. [Link](https://hashcat.net/hashcat/)
+*   **Hydra** - Fast network logon cracker (password brute-forcer). [Link](https://github.com/vanhauser-thc/thc-hydra)
+*   **John the Ripper** - Fast password cracker. [Link](https://www.openwall.com/john/)
+*   **Metasploit** - The world's most used penetration testing framework. [Link](https://www.metasploit.com/)
+*   **Microsoft Word** - Standard tool for writing professional VAPT reports. [Link](https://www.microsoft.com/microsoft-365/word)
+*   **Mimikatz** - Extracts plaintext passwords, hashes, and Kerberos tickets from memory. [Link](https://github.com/gentilkiwi/mimikatz)
+*   **MobSF** - Mobile Security Framework for automated app testing. [Link](https://github.com/MobSF/Mobile-Security-Framework-MobSF)
+*   **Nessus** - Industry-standard vulnerability scanner. [Link](https://www.tenable.com/)
+*   **Nmap** - The standard network discovery and port scanner. [Link](https://nmap.org/)
+*   **OpenVAS** - Open-source vulnerability scanner. [Link](https://www.openvas.org/)
+*   **OWASP ZAP** - Open-source web app security scanner. [Link](https://www.zaproxy.org/)
+*   **PowerShell** - Task automation and configuration management framework. [Link](https://microsoft.com/powershell)
+*   **Python** - General-purpose programming language for custom exploits and automation. [Link](https://www.python.org/)
+*   **ScoutSuite** - Multi-cloud security auditing tool. [Link](https://github.com/nccgroup/ScoutSuite)
+*   **Shodan** - Search engine for Internet-connected devices. [Link](https://shodan.io/)
+*   **SQLmap** - Automatic SQL injection and database takeover tool. [Link](https://sqlmap.org/)
+*   **WHOIS** - Query and response protocol for domain registration data. [Link](https://www.whois.com/)
 
-### 🥈 Should Know (Priority: 30 Tools)
+### 🥈 Should Know (30 Tools)
 *Elevates you above standard testers.*
-*   **Recon:** theHarvester, Amass, Subfinder, Nikto, Nuclei, Postman, ffuf, Gobuster
-*   **Web Testing:** Responder
-*   **Credential Attacks:** Hashcat, CrackMapExec, Impacket, Medusa
-*   **Post-Exploitation:** PowerShell Empire, SharpHound, Rubeus
-*   **Mobile & Binary:** jadx, Apktool, Objection, GDB-PEDA
-*   **Cloud & AI:** Pacu, Prowler, enumerate-iam, S3Scanner, PyRIT, LLM Guard
-*   **Automation:** Scapy, Requests (Python)
+*   **Amass** - In-depth DNS enumeration and network mapping. [Link](https://github.com/owasp-amass/amass)
+*   **Apktool** - Reverse engineering tool for Android APK files. [Link](https://apktool.org/)
+*   **CrackMapExec** - Swiss army knife for pentesting Windows/AD networks. [Link](https://github.com/byt3bl33d3r/CrackMapExec)
+*   **enumerate-iam** - Brute-forces AWS IAM permissions. [Link](https://github.com/andresriancho/enumerate-iam)
+*   **ffuf** - Fast web fuzzer written in Go. [Link](https://github.com/ffuf/ffuf)
+*   **GDB-PEDA** - Python Exploit Development Assistance for GDB. [Link](https://github.com/longld/peda)
+*   **Gobuster** - Directory/file & DNS busting tool. [Link](https://github.com/OJ/gobuster)
+*   **Hashcat** - Advanced password recovery. *(Also listed in Must Master)*. [Link](https://hashcat.net/hashcat/)
+*   **Impacket** - Collection of Python classes for working with network protocols. [Link](https://github.com/fortra/impacket)
+*   **jadx** - Dex to Java decompiler for Android apps. [Link](https://github.com/skylot/jadx)
+*   **LLM Guard** - Toolkit for LLM security and safety. [Link](https://github.com/protectai/llm-guard)
+*   **Medusa** - Speedy, parallel, modular login brute-forcer. [Link](https://github.com/jmk-foofus/medusa)
+*   **Nikto** - Web server scanner for dangerous files and outdated software. [Link](https://github.com/sullo/nikto)
+*   **Nuclei** - Fast, template-based vulnerability scanner. [Link](https://github.com/projectdiscovery/nuclei)
+*   **Objection** - Runtime mobile exploration toolkit. [Link](https://github.com/sensepost/objection)
+*   **Pacu** - AWS exploitation framework. [Link](https://github.com/RhinoSecurityLabs/pacu)
+*   **PlexTrac** - Reporting and collaboration platform. [Link](https://plextrac.com/)
+*   **Postman** - API platform for building and testing APIs. [Link](https://www.postman.com/)
+*   **PowerShell Empire** - Post-exploitation framework. [Link](https://github.com/EmpireProject/Empire)
+*   **Prowler** - AWS/Azure/GCP security assessments and auditing. [Link](https://github.com/prowler-cloud/prowler)
+*   **PyRIT** - Python Risk Identification Tool for generative AI. [Link](https://github.com/Azure/PyRIT)
+*   **Requests** - Elegant HTTP library for Python. [Link](https://requests.readthedocs.io/)
+*   **Responder** - LLMNR, NBT-NS and MDNS poisoner. [Link](https://github.com/lgandx/Responder)
+*   **Rubeus** - C# toolset for raw Kerberos interaction. [Link](https://github.com/GhostPack/Rubeus)
+*   **S3Scanner** - Scan for open S3 buckets and dump contents. [Link](https://github.com/sa7mon/S3Scanner)
+*   **Scapy** - Python-based interactive packet manipulation program. [Link](https://scapy.net/)
+*   **SharpHound** - C# data collector for BloodHound. [Link](https://github.com/BloodHoundAD/SharpHound)
+*   **Subfinder** - Fast subdomain discovery tool. [Link](https://github.com/projectdiscovery/subfinder)
+*   **SysReptor** - Fully customisable pentest reporting platform. [Link](https://github.com/Syslifters/sysreptor)
+*   **theHarvester** - E-mail, subdomain and people names harvester. [Link](https://github.com/laramies/theHarvester)
 
-### 🥉 Good to Know (Priority: 44 Tools)
+### 🥉 Good to Know (44 Tools)
 *Niche tools for specific scenarios.*
-*   **OSINT & Network:** Maltego, DNSRecon, SpiderFoot, Sherlock, Recon-ng, httpx, Masscan, Qualys, Nexpose, Acunetix, Goby, BeEF, Fiddler, HTTP Toolkit, mitmproxy, Aircrack-ng, bettercap, Cobalt Strike, Covenant, Penelope
-*   **Mobile & Binary:** APKLab, Magisk, Checkra1n, dnSpy, Hopper, Ciphey, hashID, PEiD, x64dbg
-*   **Cloud & AI:** CloudSploit, AzureHound, GCPBucketBrute, Ncrack, Patator, CrackStation, Legba, Serpico, Rebuff, NeMo Guardrails, TextAttack, Adversarial Robustness Toolbox
-*   **Automation:** Selenium, Ansible, Terraform
+*   **Acunetix** - Automated web vulnerability scanner. [Link](https://www.acunetix.com/)
+*   **Adversarial Robustness Toolbox** - Library for AI/ML security. [Link](https://github.com/Trusted-AI/adversarial-robustness-toolbox)
+*   **Aircrack-ng** - Complete suite for WiFi security auditing. [Link](https://www.aircrack-ng.org/)
+*   **Ansible** - IT automation engine. [Link](https://www.ansible.com/)
+*   **APKLab** - VS Code extension for reverse engineering APKs. [Link](https://github.com/APKLab/APKLab)
+*   **AzureHound** - BloodHound data collector for Azure. [Link](https://github.com/BloodHoundAD/AzureHound)
+*   **BeEF** - Browser Exploitation Framework. [Link](https://beefproject.com/)
+*   **bettercap** - Swiss army knife for network attacks and monitoring. [Link](https://www.bettercap.org/)
+*   **Checkra1n** - Jailbreak tool for iOS devices. [Link](https://checkra.in/)
+*   **Ciphey** - Automated decryption and decoding tool. [Link](https://github.com/Ciphey/Ciphey)
+*   **CloudSploit** - Cloud security scanning and monitoring. [Link](https://github.com/aquasecurity/cloudsploit)
+*   **Cobalt Strike** - Commercial penetration testing and adversary simulation tool. [Link](https://www.cobaltstrike.com/)
+*   **Covenant** - Collaborative .NET C2 framework. [Link](https://github.com/cobbr/Covenant)
+*   **CrackStation** - Massive pre-computed password hash database. [Link](https://crackstation.net/)
+*   **dnSpy** - .NET debugger and assembly editor. [Link](https://github.com/dnSpy/dnSpy)
+*   **DNSRecon** - DNS enumeration and scanning script. [Link](https://github.com/darkoperator/dnsrecon)
+*   **Fiddler** - Web debugging proxy. [Link](https://www.telerik.com/fiddler)
+*   **GCPBucketBrute** - Enumerate and brute-force GCP storage buckets. [Link](https://github.com/RhinoSecurityLabs/GCPBucketBrute)
+*   **Goby** - Attack surface mapping and vulnerability scanner. [Link](https://gobies.org/)
+*   **hashID** - Identify different types of hashes. [Link](https://github.com/psypanda/hashID)
+*   **Hopper** - Reverse engineering tool for macOS and Linux. [Link](https://www.hopperapp.com/)
+*   **HTTP Toolkit** - Intercept, debug and mock HTTP(S). [Link](https://httptoolkit.com/)
+*   **httpx** - Fast and multi-purpose HTTP toolkit. [Link](https://github.com/projectdiscovery/httpx)
+*   **Legba** - A multiprotocol credentials bruteforcer. [Link](https://github.com/evilsocket/legba)
+*   **Magisk** - Rooting solution for Android. [Link](https://github.com/topjohnwu/Magisk)
+*   **Maltego** - OSINT and graphical link analysis tool. [Link](https://www.maltego.com/)
+*   **Masscan** - The fastest Internet port scanner. [Link](https://github.com/robertdavidgraham/masscan)
+*   **mitmproxy** - Interactive TLS-capable intercepting HTTP proxy. [Link](https://mitmproxy.org/)
+*   **Ncrack** - High-speed network authentication cracking tool. [Link](https://nmap.org/ncrack/)
+*   **NeMo Guardrails** - Toolkit for LLM guardrails. [Link](https://github.com/NVIDIA/NeMo-Guardrails)
+*   **Nexpose** - Vulnerability management scanner by Rapid7. [Link](https://www.rapid7.com/)
+*   **Patator** - Multi-purpose brute-forcer. [Link](https://github.com/lanjelot/patator)
+*   **PEiD** - PE file identifier and signature scanner. [Link](https://www.aldeid.com/wiki/PEiD)
+*   **Penelope** - Shell handler and post-exploitation tool. [Link](https://github.com/brightio/penelope)
+*   **Qualys** - Cloud-based security and compliance platform. [Link](https://www.qualys.com/)
+*   **Rebuff** - LLM prompt injection detector. [Link](https://github.com/protectai/rebuff)
+*   **Recon-ng** - Full-featured Web Reconnaissance framework. [Link](https://github.com/lanmaster53/recon-ng)
+*   **Selenium** - Browser automation framework. [Link](https://www.selenium.dev/)
+*   **Serpico** - Penetration testing reporting tool. [Link](https://github.com/SerpicoProject/Serpico)
+*   **Sherlock** - Hunt down social media accounts by username. [Link](https://github.com/sherlock-project/sherlock)
+*   **SpiderFoot** - Automated OSINT collection. [Link](https://github.com/smicallef/spiderfoot)
+*   **Terraform** - Infrastructure as Code (IaC) tool. [Link](https://www.terraform.io/)
+*   **TextAttack** - Framework for adversarial attacks in NLP. [Link](https://github.com/QData/TextAttack)
+*   **x64dbg** - Open-source x64/x32 debugger for Windows. [Link](https://x64dbg.com/)
 
 ---
 
 ## 🔍 The Ultimate OSINT & Pentesting Search Engine Master List
-*Specialized engines that index what Google ignores: exposed devices, leaked code, open S3 buckets, and historical DNS data.*
+*Specialized engines that index what Google ignores.*
 *(♻️ = Core tools from the original graphic)*
 
 ### 🖥️ 1. Attack Surface & Internet Asset Discovery
 *   [Shodan](https://shodan.io) ♻️ - Search engine for IoT and exposed devices.
-*   [Censys](https://censys.io) ♻️ - Search engine for internet-connected hosts and TLS certificates.
-*   [ZoomEye](https://zoomeye.org) ♻️ - Cyberspace search engine; good for ICS and Asian infrastructure.
-*   [BinaryEdge](https://app.binaryedge.io) ♻️ - Continuous internet scanning and attack surface mapping.
-*   [FOFA](https://fofa.info) ♻️ - Cyberspace mapping; strong on protocol fingerprints.
-*   [FullHunt](https://fullhunt.io) ♻️ - Attack surface discovery and exposure management.
-*   [Netlas](https://app.netlas.io) ♻️ - Search engine for internet assets and HTTP responses.
-*   [Onyphe](https://onyphe.io) ♻️ - Cyber defense search engine for pivoting IPs and certificates.
-*   [Criminal IP](https://www.criminalip.io) - Asset inventory, risk assessment, and threat intelligence.
+*   [Censys](https://censys.io) ♻️ - Search engine for internet-connected hosts.
+*   [ZoomEye](https://zoomeye.org) ♻️ - Cyberspace search engine; good for ICS.
+*   [BinaryEdge](https://app.binaryedge.io) ♻️ - Continuous internet scanning.
+*   [FOFA](https://fofa.info) ♻️ - Cyberspace mapping; protocol fingerprints.
+*   [FullHunt](https://fullhunt.io) ♻️ - Attack surface discovery.
+*   [Netlas](https://app.netlas.io) ♻️ - Search engine for internet assets.
+*   [Onyphe](https://onyphe.io) ♻️ - Cyber defense search engine.
+*   [Criminal IP](https://www.criminalip.io) - Asset inventory and risk assessment.
 *   [Hunter.how](https://hunter.how) - Search engine for internet-connected devices.
-*   [Odin](https://odin.io) - Powerful search engine for scanned internet assets.
+*   [Odin](https://odin.io) - Search engine for scanned internet assets.
 
 ### 💻 2. Code & Source Intelligence
-*   [Grep.app](https://grep.app) ♻️ - Regex search across public GitHub repositories.
-*   [PublicWWW](https://publicwww.com) ♻️ - Search the source code of live websites.
-*   [SearchCode](https://searchcode.com) ♻️ - Searches 75 billion lines of code from open-source projects.
-*   [GitHub Code Search](https://github.com/search) - Native search for public GitHub repositories.
-*   [Sourcegraph](https://sourcegraph.com) - Enterprise-grade universal code search.
-*   [DorkSearch](https://dorksearch.com) - Fast interface for advanced Google Dorking.
-*   [GitSeek](https://gitseek.dev) - Extracts specific code from repositories for AI workflows.
-*   [Repogrep](https://repogrep.app) - AI chat interface for searching GitHub repositories.
+*   [Grep.app](https://grep.app) ♻️ - Regex search across public GitHub.
+*   [PublicWWW](https://publicwww.com) ♻️ - Search live website source code.
+*   [SearchCode](https://searchcode.com) ♻️ - Searches 75B lines of code.
+*   [GitHub Code Search](https://github.com/search) - Native GitHub search.
+*   [Sourcegraph](https://sourcegraph.com) - Universal code search.
+*   [DorkSearch](https://dorksearch.com) - Fast Google Dorking interface.
+*   [GitSeek](https://gitseek.dev) - Extracts code for AI workflows.
+*   [Repogrep](https://repogrep.app) - AI chat for GitHub repos.
 
 ### 🌐 3. DNS, Domain & Certificate Intelligence
-*   [crt.sh](https://crt.sh) ♻️ - Clean and fast Certificate Transparency log search for subdomains.
-*   [URLScan](https://urlscan.io) ♻️ - Free service to scan and analyze websites.
-*   [WiGLE](https://wigle.net) ♻️ - Database of wireless networks worldwide.
-*   [SecurityTrails](https://securitytrails.com) - Deep historical DNS and domain intelligence.
-*   [DNSDumpster](https://dnsdumpster.com) - Visual DNS reconnaissance and mapping.
-*   [VirusTotal](https://virustotal.com) - Malware analysis and domain/IP intelligence.
-*   [Wayback Machine](https://archive.org/web/) - View content from deleted or historical websites.
-*   [Certspotter](https://sslmate.com/certspotter/) - Free Certificate Transparency log search.
-*   [DNSDB](https://www.farsightsecurity.com/solutions/dnsdb/) - Historical DNS data search.
-*   [SSLBoard](https://sslboard.com) - crt.sh alternative with a visual subdomain map.
+*   [crt.sh](https://crt.sh) ♻️ - Certificate Transparency log search.
+*   [URLScan](https://urlscan.io) ♻️ - Scan and analyze websites.
+*   [WiGLE](https://wigle.net) ♻️ - Database of wireless networks.
+*   [SecurityTrails](https://securitytrails.com) - Historical DNS intelligence.
+*   [DNSDumpster](https://dnsdumpster.com) - Visual DNS recon.
+*   [VirusTotal](https://virustotal.com) - Malware and domain intelligence.
+*   [Wayback Machine](https://archive.org/web/) - Historical websites.
+*   [Certspotter](https://sslmate.com/certspotter/) - CT log search.
+*   [DNSDB](https://www.farsightsecurity.com/solutions/dnsdb/) - Historical DNS data.
+*   [SSLBoard](https://sslboard.com) - Visual subdomain map from CT logs.
 
 ### 🕵️ 4. Leaks, Credentials & Breach Data
-*   [IntelligenceX](https://intelx.io) ♻️ - Broad OSINT search covering Tor, I2P, data leaks, and pastes.
-*   [LeakIX](https://leakix.net) ♻️ - Focuses on publicly indexed open services and leaked info.
-*   [DeHashed](https://dehashed.com) - Indexes leaked credentials from public breaches.
-*   [HudsonRock](https://www.hudsonrock.com) - Search for compromised credentials via infostealers.
-*   [0t.rocks](https://0t.rocks) - Massive records and breach search engine.
+*   [IntelligenceX](https://intelx.io) ♻️ - OSINT covering Tor, I2P, and leaks.
+*   [LeakIX](https://leakix.net) ♻️ - Publicly indexed open services.
+*   [DeHashed](https://dehashed.com) - Leaked credentials from breaches.
+*   [HudsonRock](https://www.hudsonrock.com) - Compromised credentials via infostealers.
+*   [0t.rocks](https://0t.rocks) - Massive records and breach search.
 
 ### 🦠 5. Threat Intelligence & Internet Noise
-*   [GreyNoise](https://viz.greynoise.io) ♻️ - Tells you which IPs are just background internet noise.
-*   [Pulsedive](https://pulsedive.com) ♻️ - Threat intelligence search engine.
-*   [Socradar](https://socradar.io) ♻️ - Threat intelligence and digital risk protection.
-*   [AlienVault OTX](https://otx.alienvault.com) - Extensive threat intelligence feed and community.
+*   [GreyNoise](https://viz.greynoise.io) ♻️ - Identifies background internet noise.
+*   [Pulsedive](https://pulsedive.com) ♻️ - Threat intelligence search.
+*   [Socradar](https://socradar.io) ♻️ - Threat intel and risk protection.
+*   [AlienVault OTX](https://otx.alienvault.com) - Threat intel feed.
 *   [PolySwarm](https://polyswarm.network) - Scan files and URLs for threats.
 
 ### 🐛 6. Vulnerability & Exploit Databases
-*   [Vulners](https://vulners.com) ♻️ - Aggregated vulnerability database with a strong API.
-*   [Exploit-DB](https://www.exploit-db.com) - The canonical archive of public exploits.
-*   [Packet Storm Security](https://packetstormsecurity.com) - Archive of latest vulnerabilities and exploits.
+*   [Vulners](https://vulners.com) ♻️ - Aggregated vulnerability database.
+*   [Exploit-DB](https://www.exploit-db.com) - Archive of public exploits.
+*   [Packet Storm](https://packetstormsecurity.com) - Latest vulns and exploits.
 
 ### 📧 7. Email, Communication & Social OSINT
-*   [Hunter.io](https://hunter.io) ♻️ - Find email addresses associated with a domain.
-*   [Lyzem](https://lyzem.com) - Search engine for Telegram.
-*   [TGStat](https://tgstat.com) - Telegram channel statistics and search.
+*   [Hunter.io](https://hunter.io) ♻️ - Find emails for a domain.
+*   [Lyzem](https://lyzem.com) - Telegram search engine.
+*   [TGStat](https://tgstat.com) - Telegram channel stats.
 *   [FindADiscord](https://findadiscord.com) - Discord search engine.
-*   [WhatsMyName](https://whatsmyname.app) - Web-based username enumeration across platforms.
+*   [WhatsMyName](https://whatsmyname.app) - Username enumeration.
 
 ### 🔍 8. General Web & Google Dorking
-*   [Google.com](https://google.com) ♻️ - The original; use advanced search operators (Dorks).
-*   [OSINT Framework](https://osintframework.com) - A massive directory of OSINT tools.
-*   [Hackyx](https://hackyx.io) - Find CTF writeups, articles, and bug bounty reports.
+*   [Google.com](https://google.com) ♻️ - Use advanced search operators.
+*   [OSINT Framework](https://osintframework.com) - Directory of OSINT tools.
+*   [Hackyx](https://hackyx.io) - CTF writeups and bug bounty reports.
 
 ### ☁️ 9. Cloud & Storage Exposure
-*   [GrayHatWarfare](https://grayhatwarfare.com) - Searches public S3, GCS, and Azure Blob buckets.
+*   [GrayHatWarfare](https://grayhatwarfare.com) - Search public S3/GCS/Azure buckets.
 
 ---
 
 ## 🗺️ The 22-Project Roadmap (Fresher to Pro)
-
-Building projects proves you are self-driven and understand the full lifecycle. Here are 22 projects categorized by difficulty and domain.
 
 ### 🟢 Beginner Projects
 1.  **Web App VAPT:** Exploit DVWA or Juice Shop. Cover SQLi, XSS, CSRF, file upload, IDOR. Write a full professional report.
@@ -185,8 +265,6 @@ Having 22 projects proves you are passionate and better than 95% of freshers. Ho
 ---
 
 ## 📊 Knowledge Coverage Matrix
-
-If you complete the roadmap above, here is your expected coverage level across major domains:
 
 | Domain | Coverage | Key Focus Areas |
 | :--- | :--- | :--- |
