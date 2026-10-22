@@ -1,60 +1,140 @@
-# 🛡️ The Ultimate VAPT (Vulnerability Assessment & Penetration Testing) Master Guide
+# 🛡️ The Ultimate VAPT (Vulnerability Assessment & Penetration Testing) & OSINT Master Guide
 
-Welcome to the comprehensive guide for mastering VAPT. This repository contains everything you need to understand the complete attack lifecycle, the exact tools required, a 22-project roadmap to build your portfolio, and the real-world expectations of a security engineer.
+Welcome to the comprehensive guide for mastering VAPT and OSINT. This repository contains everything you need to understand the complete attack lifecycle, the exact tools required (including specialized search engines), a 22-project roadmap to build your portfolio, and the real-world expectations of a security engineer.
 
 ---
 
 ## 🩺 The VAPT Lifecycle (The Doctor Analogy)
 
-To understand VAPT, think of a security engineer as a doctor diagnosing a patient. You cannot just start "cutting" (hacking) without a diagnosis.
+To understand VAPT, think of a security engineer as a doctor diagnosing a patient. You cannot just start "cutting" (hacking) without a diagnosis. 
 
-| Doctor Analogy | VAPT Phase | What You Actually Do | Tools Used |
-| :--- | :--- | :--- | :--- |
-| **1. Consent Form**<br>*(Patient agrees to treatment)* | **1. Scoping & RoE**<br>*(Rules of Engagement)* | Sign legal contract (NDA & SOW). Define exactly which IPs/websites you can attack and which you must **not** touch. *No permission = illegal hacking.* | Pen & Paper, NDA/SOW Documents |
-| **2. Check-Up & Vitals**<br>*(Doctor checks BP, asks history)* | **2. Reconnaissance**<br>*(Information Gathering)* | Scan external network. Find open ports, OS versions, software. Look for leaked emails and subdomains. | Nmap, Shodan, theHarvester, Amass |
-| **3. Blood Test & X-Ray**<br>*(Finds a suspicious spot)* | **3. Vulnerability Assessment**<br>*(Scanning)* | Run automated scanners to find **potential** weaknesses (missing patches, outdated plugins). Filter out false positives. | Nessus, OpenVAS, Burp Scanner, Nikto |
-| **4. Surgery / Biopsy**<br>*(Cuts in to PROVE disease is real)* | **4. Penetration Testing**<br>*(Exploitation)* | **Actually exploit** the vulnerabilities. Break into the server. Prove the risk is real, not just theoretical. | Metasploit, SQLmap, Hydra, Burp Repeater |
-| **5. Checking for Metastasis**<br>*(Has it spread?)* | **5. Post-Exploitation**<br>*(Lateral Movement)* | After getting in, find passwords, move to the next server, escalate from normal user to Domain Admin. | Mimikatz, BloodHound, Cobalt Strike |
-| **6. Prescription & Treatment**<br>*(Doctor writes a plan)* | **6. Reporting & Remediation**<br>*(The Final Report)* | Write a report explaining the risk in business terms + exact technical fixes (patches, MFA, network segmentation). | MS Word, CVSS Calculator, Dradis |
-| **7. Follow-Up Visit**<br>*(Did medicine work?)* | **7. Retesting**<br>*(Verification)* | After client applies fixes, try to hack them again. Confirm "Fixed" or "Still Vulnerable." Deliver a Retest Report. | Same exploit tools (again) |
+| # | Doctor Analogy | VAPT Phase | What You Actually Do | Tools Used |
+| :--- | :--- | :--- | :--- | :--- |
+| **1** | **Consent Form**<br>*(Patient agrees to treatment & points to pain area)* | **Scoping & RoE**<br>*(Rules of Engagement)* | Sign legal contract (NDA & SOW). Define exactly which IPs/websites you can attack and which you must **not** touch. *(No permission = illegal hacking).* | Pen & Paper, NDA/SOW |
+| **2** | **Check-Up & Vitals**<br>*(Checks BP, asks history — no surgery yet)* | **Reconnaissance**<br>*(Information Gathering)* | Scan external network. Find open ports, OS versions, software. Look for leaked emails and subdomains. | Nmap, Shodan, theHarvester, Amass |
+| **3** | **Blood Test & X-Ray**<br>*(Finds a suspicious spot but hasn't proven it)* | **Vulnerability Assessment**<br>*(Scanning)* | Run automated scanners to find **potential** weaknesses (missing patches, outdated plugins). Filter false positives. | Nessus, OpenVAS, Burp Scanner, Nikto |
+| **4** | **Surgery / Biopsy**<br>*(Cuts in to PROVE disease is real)* | **Penetration Testing**<br>*(Exploitation)* | **Actually exploit** the vulnerabilities. Break into the server. Prove the risk is real, not theoretical. | Metasploit, SQLmap, Hydra, Burp Repeater |
+| **5** | **Checking for Metastasis**<br>*(Has cancer spread to other organs?)* | **Post-Exploitation**<br>*(Lateral Movement)* | After getting in, find passwords, move to the next server, escalate from normal user to Domain Admin. | Mimikatz, BloodHound, Cobalt Strike |
+| **6** | **Prescription & Treatment**<br>*(Doctor writes a plan)* | **Reporting & Remediation**<br>*(The Final Report)* | Write a report explaining the risk in business terms + exact technical fixes (patches, MFA, segmentation). | Word, CVSS Calculator, Dradis |
+| **7** | **Follow-Up Visit**<br>*(Did medicine work?)* | **Retesting**<br>*(Verification)* | After client applies fixes, try to hack them again. Confirm "Fixed" or "Still Vulnerable." Deliver a Retest Report. | Same exploit tools (again) |
 
-*Note: As a fresher, Steps 1, 2, 3, 6, and 7 require Low to Medium technical experience. Steps 4 and 5 require High to Very High experience.*
+### 👨‍💻 Experience Needed (Fresher vs Senior) & What a Fresher Can Do
+*   **Phase 1 (Scoping):** No technical experience needed. *Fresher action:* Read the NDA. Understand which IPs are in scope. Do not touch anything outside.
+*   **Phase 2 (Recon):** Low experience. Tools do most of the work. *Fresher action:* Run Nmap, Shodan, theHarvester. Copy-paste results into a document.
+*   **Phase 3 (Scan):** Low experience. Scanners are automated. *Fresher action:* Run Nessus/OpenVAS. Filter out false positives. Export the report.
+*   **Phase 4 (Exploit):** High experience. Requires deep understanding. *Fresher action:* Use Metasploit modules. Follow walkthroughs (TryHackMe/HackTheBox). Get a basic shell.
+*   **Phase 5 (Post-Exploit):** Very High experience. Requires AD knowledge. *Fresher action:* Just document what you find. Do not attempt complex lateral movement as a fresher.
+*   **Phase 6 (Report):** Low-Medium experience. Writing matters more. *Fresher action:* Write the Executive Summary. Use CVSS calculator. Suggest basic fixes.
+*   **Phase 7 (Retest):** Low experience. *Fresher action:* Re-run the same exploit. Screenshot "Fixed" or "Still Vulnerable."
 
 ---
 
-## 🛠️ The Ultimate Tool Arsenal (Categorized)
+## 🛠️ The 101-Tool VAPT Arsenal (Categorized by Function)
 
 Here is the massive categorized list of tools you need to master, ranked by priority.
 
 ### 🥇 Must Master (Priority: 27 Tools)
 *These are non-negotiable for any VAPT role.*
-*   **Recon & OSINT:** [Nmap](https://nmap.org/), [Shodan](https://shodan.io/), WHOIS, Google Dorking
-*   **Vulnerability Scanning:** [Nessus](https://www.tenable.com/), [OpenVAS](https://www.openvas.org/)
-*   **Web App Exploitation:** [Burp Suite](https://portswigger.net/burp), [SQLmap](https://sqlmap.org/), [OWASP ZAP](https://www.zaproxy.org/)
-*   **Network Exploitation:** [Metasploit](https://www.metasploit.com/), [Hydra](https://github.com/vanhauser-thc/thc-hydra), [John the Ripper](https://www.openwall.com/john/)
-*   **Post-Exploitation:** [Mimikatz](https://github.com/gentilkiwi/mimikatz), [BloodHound](https://github.com/BloodHoundAD/BloodHound)
-*   **Mobile & Cloud:** [Frida](https://frida.re/), [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF), [Ghidra](https://ghidra-sre.org/), AWS CLI, [ScoutSuite](https://github.com/nccgroup/ScoutSuite)
-*   **Cracking & Reporting:** [Hashcat](https://hashcat.net/hashcat/), [Dradis](https://dradisframework.com/), CVSS Calculator, MS Word
-*   **AI/LLM & Scripting:** [Garak](https://github.com/leondz/garak), Python, Bash, PowerShell
+*   **Recon & OSINT:** Nmap, Shodan, WHOIS, Google Dorking
+*   **Vulnerability Scanning:** Nessus, OpenVAS
+*   **Web App Exploitation:** Burp Suite, SQLmap, OWASP ZAP
+*   **Network Exploitation:** Metasploit, Hydra, John the Ripper
+*   **Post-Exploitation:** Mimikatz, BloodHound
+*   **Mobile & Cloud:** Frida, MobSF, Ghidra, AWS CLI, ScoutSuite
+*   **Cracking & Reporting:** Hashcat, Dradis, CVSS Calculator, Microsoft Word
+*   **AI/LLM & Scripting:** Garak, Python, Bash, PowerShell
 
 ### 🥈 Should Know (Priority: 30 Tools)
 *Elevates you above standard testers.*
-*   **Recon:** [theHarvester](https://github.com/laramies/theHarvester), [Amass](https://github.com/owasp-amass/amass), [Subfinder](https://github.com/projectdiscovery/subfinder), [Nuclei](https://github.com/projectdiscovery/nuclei), [ffuf](https://github.com/ffuf/ffuf), [Gobuster](https://github.com/OJ/gobuster)
-*   **Web Testing:** [Postman](https://www.postman.com/), [Responder](https://github.com/lgandx/Responder)
-*   **Credential Attacks:** [CrackMapExec](https://github.com/byt3bl33d3r/CrackMapExec), [Impacket](https://github.com/fortra/impacket), [Medusa](https://github.com/jmk-foofus/medusa)
-*   **Post-Exploitation:** [PowerShell Empire](https://github.com/EmpireProject/Empire), [SharpHound](https://github.com/BloodHoundAD/SharpHound), [Rubeus](https://github.com/GhostPack/Rubeus)
-*   **Mobile & Binary:** [jadx](https://github.com/skylot/jadx), [Apktool](https://apktool.org/), [Objection](https://github.com/sensepost/objection), [GDB-PEDA](https://github.com/longld/peda)
-*   **Cloud & AI:** [Pacu](https://github.com/RhinoSecurityLabs/pacu), [Prowler](https://github.com/prowler-cloud/prowler), [enumerate-iam](https://github.com/andresriancho/enumerate-iam), [S3Scanner](https://github.com/sa7mon/S3Scanner), [PyRIT](https://github.com/Azure/PyRIT), [LLM Guard](https://github.com/protectai/llm-guard)
-*   **Automation:** [Scapy](https://scapy.net/), Requests (Python)
+*   **Recon:** theHarvester, Amass, Subfinder, Nikto, Nuclei, Postman, ffuf, Gobuster
+*   **Web Testing:** Responder
+*   **Credential Attacks:** Hashcat, CrackMapExec, Impacket, Medusa
+*   **Post-Exploitation:** PowerShell Empire, SharpHound, Rubeus
+*   **Mobile & Binary:** jadx, Apktool, Objection, GDB-PEDA
+*   **Cloud & AI:** Pacu, Prowler, enumerate-iam, S3Scanner, PyRIT, LLM Guard
+*   **Automation:** Scapy, Requests (Python)
 
 ### 🥉 Good to Know (Priority: 44 Tools)
 *Niche tools for specific scenarios.*
-*   **OSINT:** [Maltego](https://www.maltego.com/), [DNSRecon](https://github.com/darkoperator/dnsrecon), [SpiderFoot](https://github.com/smicallef/spiderfoot), [Sherlock](https://github.com/sherlock-project/sherlock), [Recon-ng](https://github.com/lanmaster53/recon-ng), [httpx](https://github.com/projectdiscovery/httpx), [Masscan](https://github.com/robertdavidgraham/masscan), [Qualys](https://www.qualys.com/)
-*   **Web/Network:** [Nexpose](https://www.rapid7.com/), [Acunetix](https://www.acunetix.com/), [Goby](https://gobies.org/), [BeEF](https://beefproject.com/), [Fiddler](https://www.telerik.com/fiddler), HTTP Toolkit, [mitmproxy](https://mitmproxy.org/), [Aircrack-ng](https://www.aircrack-ng.org/), [bettercap](https://www.bettercap.org/), Ncrack, [Patator](https://github.com/lanjelot/patator)
-*   **C2 & Pentest Suites:** [Cobalt Strike](https://www.cobaltstrike.com/), [Covenant](https://github.com/cobbr/Covenant), [Penelope](https://github.com/brightio/penelope)
-*   **Mobile & Binary:** [APKLab](https://github.com/APKLab/APKLab), [Magisk](https://github.com/topjohnwu/Magisk), [Checkra1n](https://checkra.in/), [dnSpy](https://github.com/dnSpy/dnSpy), [Hopper](https://www.hopperapp.com/), [Ciphey](https://github.com/Ciphey/Ciphey), [hashID](https://github.com/psypanda/hashID), [PEiD](https://www.aldeid.com/wiki/PEiD), [x64dbg](https://x64dbg.com/)
-*   **Cloud & AI:** [CloudSploit](https://github.com/aquasecurity/cloudsploit), [AzureHound](https://github.com/BloodHoundAD/AzureHound), [GCPBucketBrute](https://github.com/RhinoSecurityLabs/GCPBucketBrute), [CrackStation](https://crackstation.net/), [Legba](https://github.com/evilsocket/legba), [Serpico](https://github.com/SerpicoProject/Serpico), [Rebuff](https://github.com/protectai/rebuff), [NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails), [TextAttack](https://github.com/QData/TextAttack), [Adversarial Robustness Toolbox](https://github.com/Trusted-AI/adversarial-robustness-toolbox)
-*   **Automation:** [Selenium](https://www.selenium.dev/), [Ansible](https://www.ansible.com/), [Terraform](https://www.terraform.io/)
+*   **OSINT & Network:** Maltego, DNSRecon, SpiderFoot, Sherlock, Recon-ng, httpx, Masscan, Qualys, Nexpose, Acunetix, Goby, BeEF, Fiddler, HTTP Toolkit, mitmproxy, Aircrack-ng, bettercap, Cobalt Strike, Covenant, Penelope
+*   **Mobile & Binary:** APKLab, Magisk, Checkra1n, dnSpy, Hopper, Ciphey, hashID, PEiD, x64dbg
+*   **Cloud & AI:** CloudSploit, AzureHound, GCPBucketBrute, Ncrack, Patator, CrackStation, Legba, Serpico, Rebuff, NeMo Guardrails, TextAttack, Adversarial Robustness Toolbox
+*   **Automation:** Selenium, Ansible, Terraform
+
+---
+
+## 🔍 The Ultimate OSINT & Pentesting Search Engine Master List
+*Specialized engines that index what Google ignores: exposed devices, leaked code, open S3 buckets, and historical DNS data.*
+*(♻️ = Core tools from the original graphic)*
+
+### 🖥️ 1. Attack Surface & Internet Asset Discovery
+*   [Shodan](https://shodan.io) ♻️ - Search engine for IoT and exposed devices.
+*   [Censys](https://censys.io) ♻️ - Search engine for internet-connected hosts and TLS certificates.
+*   [ZoomEye](https://zoomeye.org) ♻️ - Cyberspace search engine; good for ICS and Asian infrastructure.
+*   [BinaryEdge](https://app.binaryedge.io) ♻️ - Continuous internet scanning and attack surface mapping.
+*   [FOFA](https://fofa.info) ♻️ - Cyberspace mapping; strong on protocol fingerprints.
+*   [FullHunt](https://fullhunt.io) ♻️ - Attack surface discovery and exposure management.
+*   [Netlas](https://app.netlas.io) ♻️ - Search engine for internet assets and HTTP responses.
+*   [Onyphe](https://onyphe.io) ♻️ - Cyber defense search engine for pivoting IPs and certificates.
+*   [Criminal IP](https://www.criminalip.io) - Asset inventory, risk assessment, and threat intelligence.
+*   [Hunter.how](https://hunter.how) - Search engine for internet-connected devices.
+*   [Odin](https://odin.io) - Powerful search engine for scanned internet assets.
+
+### 💻 2. Code & Source Intelligence
+*   [Grep.app](https://grep.app) ♻️ - Regex search across public GitHub repositories.
+*   [PublicWWW](https://publicwww.com) ♻️ - Search the source code of live websites.
+*   [SearchCode](https://searchcode.com) ♻️ - Searches 75 billion lines of code from open-source projects.
+*   [GitHub Code Search](https://github.com/search) - Native search for public GitHub repositories.
+*   [Sourcegraph](https://sourcegraph.com) - Enterprise-grade universal code search.
+*   [DorkSearch](https://dorksearch.com) - Fast interface for advanced Google Dorking.
+*   [GitSeek](https://gitseek.dev) - Extracts specific code from repositories for AI workflows.
+*   [Repogrep](https://repogrep.app) - AI chat interface for searching GitHub repositories.
+
+### 🌐 3. DNS, Domain & Certificate Intelligence
+*   [crt.sh](https://crt.sh) ♻️ - Clean and fast Certificate Transparency log search for subdomains.
+*   [URLScan](https://urlscan.io) ♻️ - Free service to scan and analyze websites.
+*   [WiGLE](https://wigle.net) ♻️ - Database of wireless networks worldwide.
+*   [SecurityTrails](https://securitytrails.com) - Deep historical DNS and domain intelligence.
+*   [DNSDumpster](https://dnsdumpster.com) - Visual DNS reconnaissance and mapping.
+*   [VirusTotal](https://virustotal.com) - Malware analysis and domain/IP intelligence.
+*   [Wayback Machine](https://archive.org/web/) - View content from deleted or historical websites.
+*   [Certspotter](https://sslmate.com/certspotter/) - Free Certificate Transparency log search.
+*   [DNSDB](https://www.farsightsecurity.com/solutions/dnsdb/) - Historical DNS data search.
+*   [SSLBoard](https://sslboard.com) - crt.sh alternative with a visual subdomain map.
+
+### 🕵️ 4. Leaks, Credentials & Breach Data
+*   [IntelligenceX](https://intelx.io) ♻️ - Broad OSINT search covering Tor, I2P, data leaks, and pastes.
+*   [LeakIX](https://leakix.net) ♻️ - Focuses on publicly indexed open services and leaked info.
+*   [DeHashed](https://dehashed.com) - Indexes leaked credentials from public breaches.
+*   [HudsonRock](https://www.hudsonrock.com) - Search for compromised credentials via infostealers.
+*   [0t.rocks](https://0t.rocks) - Massive records and breach search engine.
+
+### 🦠 5. Threat Intelligence & Internet Noise
+*   [GreyNoise](https://viz.greynoise.io) ♻️ - Tells you which IPs are just background internet noise.
+*   [Pulsedive](https://pulsedive.com) ♻️ - Threat intelligence search engine.
+*   [Socradar](https://socradar.io) ♻️ - Threat intelligence and digital risk protection.
+*   [AlienVault OTX](https://otx.alienvault.com) - Extensive threat intelligence feed and community.
+*   [PolySwarm](https://polyswarm.network) - Scan files and URLs for threats.
+
+### 🐛 6. Vulnerability & Exploit Databases
+*   [Vulners](https://vulners.com) ♻️ - Aggregated vulnerability database with a strong API.
+*   [Exploit-DB](https://www.exploit-db.com) - The canonical archive of public exploits.
+*   [Packet Storm Security](https://packetstormsecurity.com) - Archive of latest vulnerabilities and exploits.
+
+### 📧 7. Email, Communication & Social OSINT
+*   [Hunter.io](https://hunter.io) ♻️ - Find email addresses associated with a domain.
+*   [Lyzem](https://lyzem.com) - Search engine for Telegram.
+*   [TGStat](https://tgstat.com) - Telegram channel statistics and search.
+*   [FindADiscord](https://findadiscord.com) - Discord search engine.
+*   [WhatsMyName](https://whatsmyname.app) - Web-based username enumeration across platforms.
+
+### 🔍 8. General Web & Google Dorking
+*   [Google.com](https://google.com) ♻️ - The original; use advanced search operators (Dorks).
+*   [OSINT Framework](https://osintframework.com) - A massive directory of OSINT tools.
+*   [Hackyx](https://hackyx.io) - Find CTF writeups, articles, and bug bounty reports.
+
+### ☁️ 9. Cloud & Storage Exposure
+*   [GrayHatWarfare](https://grayhatwarfare.com) - Searches public S3, GCS, and Azure Blob buckets.
 
 ---
 
